@@ -11,12 +11,13 @@ export class AuthGuard implements CanActivate {
     private alertify: AlertifyService, private router: Router) {
   }
   canActivate(): boolean {
-    if ( this.authService.loggedIn()) {
-      this.router.navigate(['members']);
+    if (this.authService.loggedIn()) {
+      // this.router.navigate(['members']);
       return true;
     }
-    this.alertify.error('Cannot access this area');
-    this.router.navigate(['/home']);
-    return false;
+      this.alertify.error('Cannot access this area');
+      this.router.navigate(['/home']);
+      return false;
+
   }
 }
